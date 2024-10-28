@@ -96,3 +96,13 @@
 }
 
 /* ////////////////////////////////////////////////////////////// */
+
+.levelsMainButton {
+  margin: 1rem;
+}
+.exitButton {
+  margin-top: 3rem;
+  > div {
+    padding: 1rem;
+  }
+}

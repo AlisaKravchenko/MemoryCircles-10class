@@ -1,8 +1,8 @@
 import { useState } from "react";
 import './Main.css';
 import { useNavigate } from "react-router-dom"
-export default function Main(){
-    let level = '1';
+export default function Main(props){
+    
     const [isHoverPlay, setIsHoverPlay] =useState(false);
     const [isHoverLevels, setIsHoverLevels] =useState(false);
     const navigate = useNavigate();
@@ -11,6 +11,7 @@ export default function Main(){
     }
     function onClickLevels(){
         navigate('/levels')
+        
     }
     function onHoverPlay(){
         setIsHoverPlay(prevState => !prevState);
@@ -22,7 +23,7 @@ export default function Main(){
   return (
     <div>
       <h1>TRAIN YOUR MEMORY!</h1>
-      <h3 >LEVEL: {level}</h3>
+      <h2 >LEVEL: {props.level}</h2>
         <div className='playButton'>
             <button className='mainButton .play' onClick={onClickPlay} onMouseEnter={onHoverPlay} onMouseLeave={onHoverPlay}>
             <div className='mainButtonWrap'>

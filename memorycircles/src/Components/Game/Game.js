@@ -2,7 +2,7 @@ import { useState } from "react";
 import './Game.css';
 import { useNavigate } from "react-router-dom"
 export default function Game(props){
-    console.log(props)
+
     const [score, setScore] = useState(0);
     let level = '1';
     const [isHover, setIsHover] =useState(false);
@@ -12,7 +12,6 @@ export default function Game(props){
     }
     function onMouseEnter(){
         setIsHover(prevState => !prevState);
-        console.log('2');
     }
 
   return (
