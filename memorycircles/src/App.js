@@ -1,28 +1,21 @@
 import './App.css';
-import Main from './Components/Main'
+import Main from './Components/Main/Main'
+import Game from './Components/Game/Game'
+import Levels from './Components/Levels/Levels';
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 
-
-
-function Edit(){
-  return (
-    <div>
-      <h1>Edit</h1>
-      <NavLink to='/'>Go to Main!!</NavLink>
-    </div>
-  );
-}
 
 function App() {
   return (
     <div className="App">
       <HashRouter>
         <Routes>
-          <Route path='/' element={<Main />}></Route>
-          <Route path='/edit' element={<Edit />}></Route>
+            <Route exact path='/' element={<Main />}></Route>
+            <Route path='/game' element={<Game level='1'/>}  ></Route>
+            <Route path='/levels' element={<Levels level='1'/>}  ></Route>
 
         </Routes>
-      </HashRouter>
+        </HashRouter>
     </div>
   );
 }
