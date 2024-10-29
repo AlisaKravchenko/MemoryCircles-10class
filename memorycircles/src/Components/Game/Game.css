@@ -1,0 +1,19 @@
+.score {
+    font-weight: bold;
+    margin-top: -1rem;
+}
+.circles {
+    text-align: center;
+    width: 45rem; 
+}
+.circle {
+    border: 0.3rem solid white;
+    width: 100%;  
+    height: 100%;
+    border-radius: 50%;
+}
+.circleWrap {
+    display: inline-block;
+    margin: 0.5rem;
+    border-color: 50%;
+}
