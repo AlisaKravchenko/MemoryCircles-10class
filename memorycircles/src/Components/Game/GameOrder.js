@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import './Game.css';
-import { useNavigate } from "react-router-dom"
 import { colors, levels } from "../data";
-import Circle from "./Circle";
-import { getCirclesOrder, getRandomInt } from "../../utils";
-import ExitButton from "../ExitButton";
 import Game from "./Game";
 
 export default function GameOrder(props){ 
+    const [score, setScore] = useState(0);
+    const [clickFlag, setClickFlag] = useState(false);
     const allCircles = [];
     const count = levels[props.level][0]*levels[props.level][1];
     // console.log(count);
@@ -29,12 +27,16 @@ export default function GameOrder(props){
         orderCircles.push(num)
         console.log(orderCircles)
     }
-    const [score, setScore] = useState(0);
 
     //function onCircleClick(number){
         //setScore(() => 1)
         // console.log(orderCircles)
     //}
+    useEffect(() => {
+        return () => {
+            orderCircles.length = 0;
+        }
+    })
     
   return (
     <Game level={props.level} addRandomCircle={addRandomCircle} />

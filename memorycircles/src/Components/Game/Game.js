@@ -23,7 +23,6 @@ export default function Game(props){
             props.addRandomCircle(num)
             setFlashNum(() => num)
             setFlashState(prevState => prevState+1)
-            console.log(flashState)
         }, 1000);
         setTimeout(() => { clearInterval(timerId); alert('stop'); }, 10000);
 
