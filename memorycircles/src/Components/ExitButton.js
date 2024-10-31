@@ -6,7 +6,8 @@ export default function ExitButton(props){
     const navigate = useNavigate();
     function onClick(){
         navigate('/')
-        //orderCircles.length = 0;
+        orderCircles.length  = 0;
+        orderCircles.push(0)
     }
     function onMouseEnter(){
         setIsHover(prevState => !prevState);
