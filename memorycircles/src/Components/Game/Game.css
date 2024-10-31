@@ -12,7 +12,12 @@
     height: 100%;
     border-radius: 50%;
 }
+.circleHover{
+    /* filter: brightness(80%) */
+    /* border: 0.3rem solid transparent; */
+}
 .circleWrap {
+    /* filter: brightness(80%); */
     display: inline-block;
     margin: 0.5rem;
     border-color: 50%;

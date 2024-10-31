@@ -4,6 +4,7 @@ import Game from './Components/Game/Game'
 import Levels from './Components/Levels/Levels';
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from 'react';
+import GameOrder from './Components/Game/GameOrder';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <HashRouter>
         <Routes>
             <Route exact path='/' element={<Main level={level} />}></Route>
-            <Route path='/game' element={<Game level={level}/>}  ></Route>
+            <Route path='/game' element={<GameOrder level={level}/>}  ></Route>
             <Route path='/levels' element={<Levels level={level} onChangeLevel={changeLevel}/>}  ></Route>
 
         </Routes>
