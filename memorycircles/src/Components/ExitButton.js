@@ -1,10 +1,12 @@
 import {useState } from "react";
 import { useNavigate } from "react-router-dom"
+import { orderCircles } from "./Game/GameOrder";
 export default function ExitButton(props){ 
     const [isHover, setIsHover] = useState(false);
     const navigate = useNavigate();
     function onClick(){
         navigate('/')
+        //orderCircles.length = 0;
     }
     function onMouseEnter(){
         setIsHover(prevState => !prevState);

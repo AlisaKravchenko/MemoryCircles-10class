@@ -3,7 +3,7 @@ import './Game.css';
 import { colors, levels } from "../data";
 import Game from "./Game";
 import { getRandomInt } from "../../utils";
-const orderCircles = [];
+export const orderCircles = [0];
 //const orderCircles = [getRandomInt(count)];
 export default function GameOrder(props){ 
     const [score, setScore] = useState(0);
