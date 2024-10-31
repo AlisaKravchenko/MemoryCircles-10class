@@ -19,7 +19,7 @@ export default function GameOrder(props){
     },[])
     function addRandomCircle(){
         orderCircles.push(getRandomInt(count))
-        //setScore(prevState => prevState+1)
+        setScore(prevState => prevState+1)
         //props.setMistakeFlag(() => false)
     }
     

@@ -8,7 +8,7 @@ export default function Mistake(props){
     const navigate = useNavigate()
     
     function onClickRetry(){
-        props.setScore(() => -1)
+        //props.setScore(() => -1)
     }
     function onMouseEnterRetry(){
         setIsHoverRetry(prevState => !prevState);
