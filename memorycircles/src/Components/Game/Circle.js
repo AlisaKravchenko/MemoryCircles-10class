@@ -4,7 +4,7 @@ import { levels } from "../data";
 export default function Circle(props){
     //console.log('render')
    
-    //console.log(props.flashState)
+    //console.log(props.flashNum)
   
     const [isHover, setIsHover] =useState(false);
     const count = levels[props.level][1]
@@ -49,7 +49,7 @@ export default function Circle(props){
                 filter: 'brightness(70%)',
             }    
          } )
-         props.onCircleClick(props.number);
+         
     }
     function onMouseUp(){
         setStyle2(() => {
@@ -59,6 +59,9 @@ export default function Circle(props){
             filter: 'brightness(100%)',
         }    
          } )
+         if (props.clickFlag){
+            props.onCircleClick(props.number);
+         }
     }
     function onMouseEnter(){
         setIsHover(prevState => !prevState);

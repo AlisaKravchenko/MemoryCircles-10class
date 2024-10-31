@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import './Game.css';
 import { colors, levels } from "../data";
 import Game from "./Game";
-
+import { getRandomInt } from "../../utils";
+const orderCircles = [];
+//const orderCircles = [getRandomInt(count)];
 export default function GameOrder(props){ 
     const [score, setScore] = useState(0);
-    const [clickFlag, setClickFlag] = useState(false);
+    console.log('ggggg')
     const allCircles = [];
     const count = levels[props.level][0]*levels[props.level][1];
     // console.log(count);
-    const orderCircles = [];
+    //const orderCircles = [getRandomInt(count)];
     console.log(orderCircles)
     // console.log(orderCircles)
     for (let i=0;i<count;i++){
@@ -23,8 +25,13 @@ export default function GameOrder(props){
     //     setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
 
     // }, [])
-    function addRandomCircle(num){
-        orderCircles.push(num)
+    useEffect(() => {
+        addRandomCircle();
+        console.log('hhhhhhhhhhh')
+    },[])
+    function addRandomCircle(){
+        orderCircles.push(getRandomInt(count))
+        setScore(prevState => prevState+1)
         console.log(orderCircles)
     }
 
@@ -34,12 +41,13 @@ export default function GameOrder(props){
     //}
     useEffect(() => {
         return () => {
-            orderCircles.length = 0;
+            //console.log('fff')
+            //orderCircles.length = 0;
         }
     })
     
   return (
-    <Game level={props.level} addRandomCircle={addRandomCircle} />
+    <Game level={props.level} score={score} addRandomCircle={addRandomCircle} orderCircles={orderCircles}/>
     // <Game level={props.level} flashNum={orderCircles[flashNum]}/>
     
   );
