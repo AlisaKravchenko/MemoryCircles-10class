@@ -1,3 +1,8 @@
+:root {
+    --mainColor: #3ba58e;
+    --mainColorHover: #247261;
+}
+
 .score {
     font-weight: bold;
     margin-top: -1rem;
@@ -21,4 +26,36 @@
     display: inline-block;
     margin: 0.5rem;
     border-color: 50%;
+}
+.mistakeWindowWrap1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.4rem solid white;
+    
+}
+.mistakeWindowWrap2 {
+    background-color: #fff;
+    color: var(--mainColor);   
+}
+.mistakeWindow{
+    border: 0.4rem solid var(--mainColor);
+    padding: 3rem 12rem;
+}
+.mistakeWindow button {
+    margin-top: 1rem ;
+    border: 0.4rem solid var(--mainColor);
+    > div {
+        background-color: var(--mainColor);
+        color: white;
+        border: none;
+    }
+    
+}
+.retryHover{
+    border: 0.4rem solid var(--mainColorHover) !important;
+}
+.hoverRetryBg{
+    background-color: var(--mainColorHover) !important;
 }

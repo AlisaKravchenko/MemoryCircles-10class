@@ -6,7 +6,6 @@ export default function Circle(props){
     const count = levels[props.level][1]
     const size=(45-count*2)/count +'rem'
     const style1={
-        
         width: size,
         height: size
     }

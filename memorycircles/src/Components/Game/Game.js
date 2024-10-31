@@ -4,11 +4,12 @@ import { colors, levels } from "../data";
 import Circle from "./Circle";
 import { orderCircles } from "./GameOrder";
 import ExitButton from "../ExitButton";
+import Mistake from "./Mistake";
 export default function Game(props){ 
     const allCircles = [];
     let currentNum = 0;
     const count = levels[props.level][0]*levels[props.level][1];
-
+    const [mistakeFlag, setMistakeFlag] = useState(false)
     const [clickFlag, setClickFlag] = useState(false);
 
     for (let i=0;i<count;i++){
@@ -37,7 +38,7 @@ export default function Game(props){
                 setFlashState(() => 0)
             }
         } else {
-            alert('mistake')
+            setMistakeFlag(() => true)
         }
     }
     
@@ -62,7 +63,9 @@ export default function Game(props){
             } )}
         </div>
         <ExitButton />
+        {mistakeFlag ? <Mistake score={props.score} setMistakeFlag={setMistakeFlag} setScore={props.setScore}/> : ''}
       </div>
+      
     
   );
 }

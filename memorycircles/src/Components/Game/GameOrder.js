@@ -19,10 +19,11 @@ export default function GameOrder(props){
     },[])
     function addRandomCircle(){
         orderCircles.push(getRandomInt(count))
-        setScore(prevState => prevState+1)
+        //setScore(prevState => prevState+1)
+        //props.setMistakeFlag(() => false)
     }
     
   return (
-    <Game level={props.level} score={score} addRandomCircle={addRandomCircle} orderCircles={orderCircles}/>
+    <Game level={props.level} setScore={setScore} score={score} addRandomCircle={addRandomCircle} orderCircles={orderCircles}/>
   );
 }
