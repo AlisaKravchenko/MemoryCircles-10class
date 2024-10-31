@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import './Game.css';
 import { levels } from "../data";
 export default function Circle(props){
-    //console.log('render')
-   
-    //console.log(props.flashNum)
-  
     const [isHover, setIsHover] =useState(false);
     const count = levels[props.level][1]
     const size=(45-count*2)/count +'rem'
@@ -19,7 +15,6 @@ export default function Circle(props){
     })
 
     useEffect(() => {
-        //console.log(props.number, props.flashNum)
         if (props.number === props.flashNum){
             setStyle2(() => {
                 return {
@@ -42,23 +37,28 @@ export default function Circle(props){
     } , [props.flashState])
     //const [isHover, setIsHover] =useState(false);
     function onMouseDown(){
-        setStyle2(() => {
-           return {
-                // opacity: '0.5',
-                backgroundColor: props.color,
-                filter: 'brightness(70%)',
-            }    
+        //if (props.clickFlag){
+            setStyle2(() => {
+                return {
+                    // opacity: '0.5',
+                    backgroundColor: props.color,
+                    filter: 'brightness(70%)',
+                }    
          } )
+        //}
+        
          
     }
     function onMouseUp(){
-        setStyle2(() => {
-           return {
-            opacity: '1',
-            backgroundColor: props.color,
-            filter: 'brightness(100%)',
-        }    
+        //if (props.clickFlag){
+            setStyle2(() => {
+                return {
+                    // opacity: '0.5',
+                    backgroundColor: props.color,
+                    filter: 'brightness(100%)',
+                }    
          } )
+        //}
          if (props.clickFlag){
             props.onCircleClick(props.number);
          }
