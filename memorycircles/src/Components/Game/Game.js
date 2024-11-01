@@ -17,28 +17,43 @@ export default function Game(props){
     }
     const [flashState, setFlashState] = useState(0);
 
+    function retryClick(){
+        setMistakeFlag(() => false)
+        setFlashState(() => -1)
+        setClickFlag(() => false)
+        currentNum=0
+        const onRetryClick = props.onRetryClick
+        onRetryClick()
+    }
+
+
     useEffect(() => {
         let timerId = setInterval(() => {
             setFlashState(prevState => prevState+1)
         }, 1000);
-        setTimeout(() => { 
+        const timeout = setTimeout(() => { 
             clearInterval(timerId)
             setClickFlag(() => true)
             currentNum = 0;
-        }, 1000*(props.score+1));
-
+        }, 1000*(orderCircles.length+1));
+        return () => {
+            clearTimeout(timeout)
+            clearInterval(timerId)
+        }
     }, [props.score])
     
     function onCircleClick(number){
-        if (props.orderCircles[currentNum] === number){
+        if (orderCircles[currentNum] === number){
             currentNum++;
-            if (currentNum-1===props.score){
+            if (currentNum-1===orderCircles.length-1){
                 setClickFlag(() => false)
                 props.addRandomCircle()
                 setFlashState(() => 0)
             }
         } else {
+            orderCircles.length  = 0;
             setMistakeFlag(() => true)
+            
         }
     }
     
@@ -52,7 +67,7 @@ export default function Game(props){
             {Object.keys(allCircles).map((key,index) => {
                 return <Circle 
                     color={colors[index]} 
-                    key={colors[index]} 
+                    key={index} 
                     number={index} 
                     level={props.level} 
                     onCircleClick={onCircleClick} 
@@ -63,7 +78,7 @@ export default function Game(props){
             } )}
         </div>
         <ExitButton />
-        {mistakeFlag ? <Mistake score={props.score} setMistakeFlag={setMistakeFlag} setScore={props.setScore}/> : ''}
+        {mistakeFlag ? <Mistake score={props.score}  retryClick={retryClick}/> : ''}
       </div>
       
     

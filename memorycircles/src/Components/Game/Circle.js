@@ -57,10 +57,11 @@ export default function Circle(props){
                     filter: 'brightness(100%)',
                 }    
          } )
-        //}
          if (props.clickFlag){
             props.onCircleClick(props.number);
          }
+        //}
+         
     }
     function onMouseEnter(){
         setIsHover(prevState => !prevState);
