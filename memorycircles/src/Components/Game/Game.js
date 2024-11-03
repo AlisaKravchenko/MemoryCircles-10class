@@ -45,9 +45,6 @@ export default function Game(props){
     }, [props.score])
     
     function onCircleClick(number){
-        console.log(orderCircles)
-        console.log(number)
-        console.log(currentNum)
         if (orderCircles[currentNum] === number){
             currentNum=currentNum+1;
             if (currentNum===orderCircles.length){

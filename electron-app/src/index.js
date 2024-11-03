@@ -16,7 +16,7 @@ const createWindow = () => {
     },
     
   });
-  mainWindow.setMenuBarVisibility(false);
+  //mainWindow.setMenuBarVisibility(false);
   //Dev
   mainWindow.loadURL('http://localhost:3000')
   //Prod

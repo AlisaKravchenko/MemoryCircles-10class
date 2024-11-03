@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './Game.css';
 import { useNavigate } from 'react-router';
-import { orderCircles } from './GameOrder';
 export default function Mistake({score, retryClick}){ 
     const [isHoverRetry, setIsHoverRetry] = useState(false);
     const [isHoverExit, setIsHoverExit] = useState(false);
@@ -9,7 +8,7 @@ export default function Mistake({score, retryClick}){
     
     function onClickRetry(){
         retryClick()
-        console.log(orderCircles)
+        
     }
     function onMouseEnterRetry(){
         setIsHoverRetry(prevState => !prevState);
