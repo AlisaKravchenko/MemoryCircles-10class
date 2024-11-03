@@ -97,11 +97,15 @@
 
 /* ////////////////////////////////////////////////////////////// */
 
+
+.levels {
+  width: 60rem;
+}
 .levelsMainButton {
   margin: 1rem;
 }
 .exitButton {
-  margin-top: 3rem;
+  margin-top: 3rem !important;
   > div {
     padding: 1rem;
   }

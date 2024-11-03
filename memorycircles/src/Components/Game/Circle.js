@@ -17,7 +17,6 @@ export default function Circle(props){
         if (props.number === props.flashNum){
             setStyle2(() => {
                 return {
-                    // opacity: '0.5',
                     backgroundColor: props.color,
                     filter: 'brightness(50%)',
                 }    
@@ -25,7 +24,6 @@ export default function Circle(props){
             setTimeout(() => {
                 setStyle2(() => {
                     return {
-                        // opacity: '0.5',
                         backgroundColor: props.color,
                         filter: 'brightness(100%)',
                     }  
@@ -34,33 +32,30 @@ export default function Circle(props){
            
         }
     } , [props.flashState])
-    //const [isHover, setIsHover] =useState(false);
+    
     function onMouseDown(){
-        //if (props.clickFlag){
+        if (props.clickFlag){
             setStyle2(() => {
                 return {
-                    // opacity: '0.5',
                     backgroundColor: props.color,
                     filter: 'brightness(70%)',
                 }    
-         } )
-        //}
+            } )
+        }
         
          
     }
     function onMouseUp(){
-        //if (props.clickFlag){
+        if (props.clickFlag){
             setStyle2(() => {
                 return {
-                    // opacity: '0.5',
                     backgroundColor: props.color,
                     filter: 'brightness(100%)',
                 }    
-         } )
-         if (props.clickFlag){
+            } )
             props.onCircleClick(props.number);
-         }
-        //}
+         
+        }
          
     }
     function onMouseEnter(){
@@ -68,8 +63,8 @@ export default function Circle(props){
     }
 
   return (
-    <div className={isHover ? 'circleWrap circleHover' : 'circleWrap'} style={style1} onMouseEnter={onMouseEnter} onMouseLeave={onMouseEnter}>
-        <button className='circle' style={style2} onMouseUp={onMouseUp} onMouseDown={onMouseDown}>
+    <div className='circleWrap' style={style1} onMouseEnter={onMouseEnter} onMouseLeave={onMouseEnter}>
+        <button className={isHover ? 'circle circleHover' : 'circle'} style={style2} onMouseUp={onMouseUp} onMouseDown={onMouseDown}>
 
         </button>
     </div>

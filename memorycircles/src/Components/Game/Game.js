@@ -5,9 +5,11 @@ import Circle from "./Circle";
 import { orderCircles } from "./GameOrder";
 import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";
+export let currentNum = 0;
 export default function Game(props){ 
+    console.log('render')
     const allCircles = [];
-    let currentNum = 0;
+    
     const count = levels[props.level][0]*levels[props.level][1];
     const [mistakeFlag, setMistakeFlag] = useState(false)
     const [clickFlag, setClickFlag] = useState(false);
@@ -21,20 +23,20 @@ export default function Game(props){
         setMistakeFlag(() => false)
         setFlashState(() => -1)
         setClickFlag(() => false)
-        currentNum=0
         const onRetryClick = props.onRetryClick
         onRetryClick()
     }
 
 
     useEffect(() => {
+        currentNum = 0;
         let timerId = setInterval(() => {
             setFlashState(prevState => prevState+1)
         }, 1000);
         const timeout = setTimeout(() => { 
             clearInterval(timerId)
             setClickFlag(() => true)
-            currentNum = 0;
+            
         }, 1000*(orderCircles.length+1));
         return () => {
             clearTimeout(timeout)
@@ -43,12 +45,16 @@ export default function Game(props){
     }, [props.score])
     
     function onCircleClick(number){
+        console.log(orderCircles)
+        console.log(number)
+        console.log(currentNum)
         if (orderCircles[currentNum] === number){
-            currentNum++;
-            if (currentNum-1===orderCircles.length-1){
+            currentNum=currentNum+1;
+            if (currentNum===orderCircles.length){
                 setClickFlag(() => false)
-                props.addRandomCircle()
                 setFlashState(() => 0)
+                props.addRandomCircle()
+                
             }
         } else {
             orderCircles.length  = 0;

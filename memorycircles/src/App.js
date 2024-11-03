@@ -1,7 +1,7 @@
 import './App.css';
 import Main from './Components/Main/Main'
 import Game from './Components/Game/Game'
-import Levels from './Components/Levels/Levels';
+import Levels from './Components/Levels';
 import {HashRouter, Routes, Route, NavLink} from 'react-router-dom';
 import { useState } from 'react';
 import GameOrder from './Components/Game/GameOrder';
