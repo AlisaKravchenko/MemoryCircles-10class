@@ -23,7 +23,7 @@ export default function Main(props){
   return (
     <div>
       <h1>TRAIN YOUR MEMORY!</h1>
-      <h2 >LEVEL: {props.level}</h2>
+      <h2 >LEVEL: {props.level} <br></br>BEST: {localStorage.getItem(props.level)}</h2>
         <div className='playButton'>
             <button className='mainButton .play' onClick={onClickPlay} onMouseEnter={onHoverPlay} onMouseLeave={onHoverPlay}>
             <div className='mainButtonWrap'>

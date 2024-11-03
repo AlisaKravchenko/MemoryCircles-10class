@@ -37,7 +37,7 @@ export default function Game(props){
             clearInterval(timerId)
             setClickFlag(() => true)
             
-        }, 1000*(orderCircles.length+1));
+        }, 1000*(orderCircles.length+1)-500);
         return () => {
             clearTimeout(timeout)
             clearInterval(timerId)
@@ -56,6 +56,10 @@ export default function Game(props){
         } else {
             orderCircles.length  = 0;
             setMistakeFlag(() => true)
+            if (JSON.parse(localStorage.getItem(props.level)) < props.score){
+                localStorage.setItem(props.level, JSON.stringify(props.score))
+            }
+            
             
         }
     }
@@ -80,7 +84,7 @@ export default function Game(props){
                 />
             } )}
         </div>
-        <ExitButton />
+        <ExitButton level={props.level} score={props.score}/>
         {mistakeFlag ? <Mistake score={props.score}  retryClick={retryClick}/> : ''}
       </div>
       
