@@ -10,7 +10,10 @@ import Mistake from "./Mistake";
 export let currentNum = 0;
 export default function Game(props){ 
     const allCircles = [];
-    
+    const headStyle = {
+        marginTop: '0.7rem',
+        marginBottom: '0'
+    }
     const count = levels[props.level][0]*levels[props.level][1];
     const [mistakeFlag, setMistakeFlag] = useState(false)
     const [clickFlag, setClickFlag] = useState(false);
@@ -68,7 +71,7 @@ export default function Game(props){
     
   return (
     <div>
-            <h1 className='score' >
+            <h1 className='score' style={props.level === 1 ? headStyle : {}}>
                 Score: {props.score}
             </h1>
         
@@ -86,7 +89,7 @@ export default function Game(props){
                 />
             } )}
         </div>
-        <ExitButton level={props.level} score={props.score}/>
+        <ExitButton level={props.level} score={props.score} />
         {mistakeFlag ? <Mistake score={props.score}  retryClick={retryClick}/> : ''}
       </div>
       
