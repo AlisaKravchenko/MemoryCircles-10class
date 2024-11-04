@@ -37,9 +37,12 @@
 .mistakeWindow{
     border: 0.4rem solid var(--mainColor);
     padding: 3rem 12rem;
+    > h2 {
+        margin-bottom: 3rem;
+    }
 }
 .mistakeWindow button {
-    margin-top: 1rem ;
+    margin-top: 1rem !important;
     border: 0.4rem solid var(--mainColor);
     > div {
         background-color: var(--mainColor);
