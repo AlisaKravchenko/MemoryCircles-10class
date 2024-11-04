@@ -2,7 +2,7 @@
   "name": "electron-app",
   "productName": "electron-app",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Memory Circles",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
@@ -24,8 +24,8 @@
   },
   "keywords": [],
   "author": {
-    "name": "AlisaKravchenko",
-    "email": "AlisaKravchenko@users.noreply.github.com"
+    "name": "Alisa Kravchenko",
+    "email": "alisakrav5@gmail.com"
   },
   "license": "MIT",
   "dependencies": {
