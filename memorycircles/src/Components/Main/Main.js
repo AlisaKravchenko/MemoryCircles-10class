@@ -42,9 +42,6 @@ export default function Main(props){
         <button className='mainButton .levels' >
             <div className='mainButtonWrap forMainWidth' onClick={onClickLevels} onMouseEnter={onHoverLevels} onMouseLeave={onHoverLevels}>
                 LEVELS
-                {/* <div className={isHoverLevels ? 'arrow-1 arrow-hover' : 'arrow-1'}>
-                    <div className="arrow-1-div" ></div>
-                </div> */}
             </div>
         </button>
         <button className='mainButton .levels' >

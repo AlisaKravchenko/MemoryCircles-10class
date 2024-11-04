@@ -35,17 +35,11 @@ export default function Mistake({score, retryClick}){
                     <button className={isHoverRetry ? 'mainButton exitButton  retryHover' : 'mainButton exitButton'} onClick={onClickRetry} onMouseEnter={onMouseEnterRetry} onMouseLeave={onMouseEnterRetry}>
                         <div className={isHoverRetry ? 'mainButtonWrap hoverRetryBg' : 'mainButtonWrap'}>
                             Retry
-                            {/* <div className={isHover ? 'arrow-1 arrow-hover' : 'arrow-1'}>
-                                <div className="arrow-1-div" ></div>
-                            </div> */}
                         </div>
                     </button>
                     <button className={isHoverExit ? 'mainButton exitButton  retryHover' : 'mainButton exitButton'} onClick={onClickExit} onMouseEnter={onMouseEnterExit} onMouseLeave={onMouseEnterExit}>
                         <div className={isHoverExit ? 'mainButtonWrap hoverRetryBg' : 'mainButtonWrap'}>
                             Exit
-                            {/* <div className={isHover ? 'arrow-1 arrow-hover' : 'arrow-1'}>
-                                <div className="arrow-1-div" ></div>
-                            </div> */}
                         </div>
                     </button>
                 </div>
