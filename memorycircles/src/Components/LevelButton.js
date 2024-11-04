@@ -10,6 +10,7 @@ export default function LevelButton (props){
     }
     function onClick(){
         navigate('/');
+        localStorage.setItem('currentLevel', level)
         props.changeLevel(level);
     }
 

@@ -1,7 +1,3 @@
-:root {
-    --mainColor: #3ba58e;
-    --mainColorHover: #247261;
-}
 
 .score {
     font-weight: bold;
@@ -19,14 +15,11 @@
 }
 .circleHover{
     transform: scale(1.01);
-    /* filter: brightness(80%) */
-    /* border: 0.3rem solid transparent; */
 }
 .circleWrap {
-    /* filter: brightness(80%); */
     display: inline-block;
     margin: 0.5rem;
-    border-color: 50%;
+    border-radius: 50%;
 }
 .mistakeWindowWrap1 {
     position: absolute;

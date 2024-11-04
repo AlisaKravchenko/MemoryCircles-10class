@@ -13,6 +13,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+h2 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
 
 
 /*///////////////////////// mainButton/////////////////////////// */
@@ -24,25 +32,35 @@
   font-weight: bold;
   font-size: 2rem;
   border: none;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  min-width: 15rem;
+  
+  
 }
 .mainButton:hover {
-  color: var(--mainColorHover);
+  color: var(--mainColorHover) !important;
 }
 
 .mainButtonWrap{
   border-color: var(--mainColor);
   border: 0.4rem solid;
   background-color: white;
-  padding: 1rem 1.5rem 0.5rem 1.5rem;
+  padding: 0.8rem 1.5rem;
   margin: 0.3rem 0;
+  
+}
+.forMainWidth {
+  min-width: 12rem !important;
 }
 .arrow-1 {
-  cursor: pointer;
-  position: relative;
   width: 80px;
   height: 50px;
-  margin: 20px;
-  margin-left: 7px;
+  display: block;
+  margin: auto  !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
 }
 
 .arrow-1 div {
@@ -95,18 +113,25 @@
   }
 }
 
-/* ////////////////////////////////////////////////////////////// */
+/* //////////////////////////////levels//////////////////////////////// */
 
 
 .levels {
   width: 60rem;
+  
+}
+.levels .mainButton {
+  min-width: 12rem !important;
 }
 .levelsMainButton {
   margin: 1rem;
+  display: inline;
 }
 .exitButton {
   margin-top: 3rem !important;
+  min-width: 12rem !important;
   > div {
     padding: 1rem;
   }
 }
+

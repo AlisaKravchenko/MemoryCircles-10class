@@ -5,9 +5,10 @@ import Circle from "./Circle";
 import { orderCircles } from "./GameOrder";
 import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";
+
+
 export let currentNum = 0;
 export default function Game(props){ 
-    console.log('render')
     const allCircles = [];
     
     const count = levels[props.level][0]*levels[props.level][1];

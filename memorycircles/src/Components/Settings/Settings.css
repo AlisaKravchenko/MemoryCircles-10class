@@ -1,0 +1,163 @@
+.settingsWrap1 {
+    border: 0.4rem solid white;
+    font-size: 1.7rem;
+}
+
+.settingsWrap2 {
+    background-color: #fff;
+    color: var(--mainColor);
+}
+
+.settingsWindow {
+    border: 0.4rem solid var(--mainColor);
+    padding: 1rem 1rem;
+    /* min-height: 3.5rem; */
+}
+table {
+    min-width: 30rem;
+}
+select {
+    border: 0.3rem solid var(--mainColor);
+    outline: none;
+    border-radius: 5px;
+    padding: 0.7rem 0 0.7rem 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--mainColor);
+    outline: 0;
+    display: block;
+    float: right;
+}
+.themeSwitch {
+    border-radius: 5px;
+    padding: 0.7rem 0 0.7rem 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--mainColor);
+    outline: 0;
+    display: block;
+    float: right;
+}
+.themeSwitch input {
+    background-color: var(--mainColor) !important;
+    border-color: var(--mainColor) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.themeSwitch input:checked {
+    background-color: var(--mainColor) !important;
+    border-color: var(--mainColor) !important;
+}
+.themeSwitch input{
+    background-image:  url("data: image/svg+xml, %3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8' %3e%3ccircle r='3' fill='%23fff' /%3e%3c/svg%3e") !important;
+}
+.settingsOption {
+    font-weight: bold;
+    text-align: left !important;
+    
+}
+
+
+
+/* /////////////////////////////dark theme////////////////////////////// */
+:root {
+    --mainColorDark: #308572;
+    --mainColorDarkWhite: #b4a79c;
+}
+
+
+.darkTheme{
+    color: var(--mainColorDarkWhite) ;
+    background-color: var(--mainColorDark);
+}
+
+.darkTheme .mainButtonWrap {
+    background-color: var(--mainColorDarkWhite) ;
+    border-color: var(--mainColorDark) ;
+    color: var(--mainColorDark) ;
+}
+.darkTheme .mainButton {
+    background-color: var(--mainColorDarkWhite);
+}
+.darkTheme .mainButtonWrap:hover {
+    border-color: var(--mainColorHover) !important;
+    color: var(--mainColorHover) !important;
+}
+.darkTheme .arrow-1 div {
+    background-color: var(--mainColorDark);
+
+}
+
+.darkTheme .arrow-1 div::after {
+    background-color: var(--mainColorDark);
+}
+
+.darkTheme .arrow-1 div::before {
+    background-color: var(--mainColorDark);
+}
+.darkTheme .arrow-hover div,
+.arrow-hover div::before,
+.arrow-hover div::after {
+    background-color: var(--mainColorHover) !important;
+}
+.darkTheme .mistakeWindowWrap1 button {
+    border: 0.4rem solid var(--mainColorDark);
+    >div {
+        background-color: var(--mainColorDark);
+        color: var(--mainColorDarkWhite);
+    }
+
+}
+.darkTheme .mistakeWindowWrap1 {
+    border: 0.4rem solid var(--mainColorDarkWhite);
+
+}
+.darkTheme .mistakeWindow h1 {
+    color: var(--mainColorDark)
+}
+.darkTheme .mistakeWindow h2 {
+    color: var(--mainColorDark)
+}
+
+.darkTheme .mistakeWindowWrap2 {
+    background-color: var(--mainColorDarkWhite);
+    color: var(--mainColor);
+}
+
+.darkTheme .mistakeWindow {
+    border: 0.4rem solid var(--mainColorDark);
+}
+
+ .darkTheme .mistakeWindow button {
+    border: 0.4rem solid var(--mainColorDark);
+    >div {
+        background-color: var(--mainColorDark);
+        color: var(--mainColorDarkWhite);
+    }
+
+}
+.darkTheme .mistakeWindow .mainButtonWrap:hover {
+    color: var(--mainColorDarkWhite) !important;
+}
+.darkTheme .circle{
+    border: 0.3rem solid #d9d1cd;
+}
+.darkTheme .settingsWrap2 {
+    background-color: var(--mainColorDarkWhite);
+    color: var(--mainColorDark);
+}
+.darkTheme .settingsWindow {
+    border: 0.4rem solid var(--mainColorDark);
+}
+.darkTheme .settingsWrap1 {
+    border: 0.4rem solid var(--mainColorDarkWhite);
+}
+.darkTheme select {
+    color: var(--mainColorDark);
+    border: 0.3rem solid var(--mainColorDark);
+    background-color: var(--mainColorDarkWhite);
+}
+.darkTheme .themeSwitch input:checked {
+    background-color: var(--mainColorDark) !important;
+    border-color: var(--mainColorDark) !important;
+}
