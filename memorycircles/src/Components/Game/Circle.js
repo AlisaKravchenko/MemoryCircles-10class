@@ -14,6 +14,7 @@ export default function Circle(props){
     })
 
     useEffect(() => {
+        const speed = JSON.parse(localStorage.getItem('speed'))
         if (props.number === props.flashNum){
             setStyle2(() => {
                 return {
@@ -28,7 +29,7 @@ export default function Circle(props){
                         filter: 'brightness(100%)',
                     }  
                 })
-            }, 500)
+            }, speed)
            
         }
     } , [props.flashState])

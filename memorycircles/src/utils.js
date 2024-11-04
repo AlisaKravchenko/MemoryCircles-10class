@@ -10,4 +10,5 @@ export function createLocalStorage(){
   }
   localStorage.setItem('darkTheme', false)
   localStorage.setItem('currentLevel', 1)
+  localStorage.setItem('speed', 500)
 }

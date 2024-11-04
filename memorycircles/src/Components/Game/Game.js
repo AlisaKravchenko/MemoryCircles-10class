@@ -31,14 +31,15 @@ export default function Game(props){
 
     useEffect(() => {
         currentNum = 0;
+        const speed = JSON.parse(localStorage.getItem('speed'))
         let timerId = setInterval(() => {
             setFlashState(prevState => prevState+1)
-        }, 1000);
+        }, speed*2);
         const timeout = setTimeout(() => { 
             clearInterval(timerId)
             setClickFlag(() => true)
             
-        }, 1000*(orderCircles.length+1)-500);
+        }, speed*2*(orderCircles.length+1)-speed);
         return () => {
             clearTimeout(timeout)
             clearInterval(timerId)
