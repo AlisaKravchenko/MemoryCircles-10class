@@ -20,9 +20,9 @@ const createWindow = () => {
   });
   mainWindow.setMenuBarVisibility(false);
   //Dev
-  mainWindow.loadURL('http://localhost:3000')
+  //mainWindow.loadURL('http://localhost:3000')
   //Prod
-  //mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
   // Open the DevTools
   //mainWindow.webContents.openDevTools();
