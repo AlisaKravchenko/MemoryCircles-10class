@@ -33,6 +33,7 @@ export default function Game(props){
 
 
     useEffect(() => {
+        console.log(props.render)
         currentNum = 0;
         const speed = JSON.parse(localStorage.getItem('speed'))
         let timerId = setInterval(() => {
@@ -71,9 +72,12 @@ export default function Game(props){
     
   return (
     <div>
-            <h1 className='score' style={props.level === 1 ? headStyle : {}}>
-                Score: {props.score}
-            </h1>
+        <h1 className='score' style={props.level === 1 ? headStyle : {}}>
+            Score: {props.score}
+        </h1>
+        <h1 style={{color: (clickFlag ? '#32CD32' : '#FF0000')}}>
+            {clickFlag ? "CLICK!" : "REMEMBER!"}
+        </h1>
         
         <div className='circles' >
             {Object.keys(allCircles).map((key,index) => {
