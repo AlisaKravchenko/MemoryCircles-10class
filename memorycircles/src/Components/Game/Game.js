@@ -25,7 +25,7 @@ export default function Game(props){
 
     function retryClick(){
         setMistakeFlag(() => false)
-        setFlashState(() => -1)
+        setFlashState(() => 0)
         setClickFlag(() => false)
         const onRetryClick = props.onRetryClick
         onRetryClick()
