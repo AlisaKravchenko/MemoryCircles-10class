@@ -1,0 +1,137 @@
+:root {
+  --mainColor: #3ba58e;
+  --mainColorHover: #247261;
+}
+.App {
+  text-align: center;
+  background-color: var(--mainColor);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+h2 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+
+/*///////////////////////// mainButton/////////////////////////// */
+
+
+.mainButton{
+  background-color: #fff;
+  color: var(--mainColor);
+  font-weight: bold;
+  font-size: 2rem;
+  border: none;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  min-width: 15rem;
+  
+  
+}
+.mainButton:hover {
+  color: var(--mainColorHover) !important;
+}
+
+.mainButtonWrap{
+  border-color: var(--mainColor);
+  border: 0.4rem solid;
+  background-color: white;
+  padding: 0.8rem 1.5rem;
+  margin: 0.3rem 0;
+  
+}
+.forMainWidth {
+  min-width: 12rem !important;
+}
+.arrow-1 {
+  width: 80px;
+  height: 50px;
+  display: block;
+  margin: auto  !important;
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.arrow-1 div {
+  position: relative;
+  top: 20px;
+  width: 90px;
+  height: 7.5px;
+  background-color: var(--mainColor);
+  left: 0;
+  display: block;
+
+}
+
+.arrow-1 div::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 7px;
+  top: -11.8px;
+  right: -9px;
+  background-color: var(--mainColor);
+  transform: rotate(45deg);
+}
+
+.arrow-1 div::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 7px;
+  top: 12px;
+  right: -9px;
+  background-color: var(--mainColor);
+  transform: rotate(-45deg);
+}
+.arrow-hover div, .arrow-hover div::before, .arrow-hover div::after{
+  background-color: var(--mainColorHover);
+}
+
+@keyframes arrow-1 {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: 10px;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+/* //////////////////////////////levels//////////////////////////////// */
+
+
+.levels {
+  width: 60rem;
+  
+}
+.levels .mainButton {
+  min-width: 12rem !important;
+}
+.levelsMainButton {
+  margin: 1rem;
+  display: inline;
+}
+.exitButton {
+  margin-top: 3rem !important;
+  min-width: 12rem !important;
+  > div {
+    padding: 1rem;
+  }
+}
+

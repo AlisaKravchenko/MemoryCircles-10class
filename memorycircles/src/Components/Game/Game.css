@@ -1,0 +1,76 @@
+
+.score {
+    font-weight: bold;
+    margin-top: -1rem;
+}
+.circles {
+    text-align: center;
+    width: 45rem; 
+}
+.circle {
+    border: 0.3rem solid white;
+    width: 100%;  
+    height: 100%;
+    border-radius: 50%;
+    /* transform: translate(-90px);
+    transition-property: transform;
+    transition-duration: 1s; */
+}
+.circleHover{
+    transform: scale(1.01);
+}
+.circleWrap {
+    display: inline-block;
+    margin: 0.5rem;
+    border-radius: 50%;
+}
+.mistakeWindowWrap1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.4rem solid white;
+    z-index: 2;
+    
+}
+.mistakeWindowWrap2 {
+    background-color: #fff;
+    color: var(--mainColor);  
+}
+.mistakeWindow{
+    border: 0.4rem solid var(--mainColor);
+    padding: 3rem 12rem;
+    > h2 {
+        margin-bottom: 3rem;
+    }
+}
+.mistakeWindow button {
+    margin-top: 1rem !important;
+    border: 0.4rem solid var(--mainColor);
+    > div {
+        background-color: var(--mainColor);
+        color: white;
+        border: none;
+    }
+    
+}
+.mistakeOpacity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+    opacity: 0.3;
+}
+.exitButton {
+    display: block;
+    margin: auto;
+}
+.retryHover{
+    border: 0.4rem solid var(--mainColorHover) !important;
+}
+.hoverRetryBg{
+    background-color: var(--mainColorHover) !important;
+}
