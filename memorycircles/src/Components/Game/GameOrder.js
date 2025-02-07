@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import './Game.css';
 import { colors, levels } from "../data";
-import Game, { redCircleNum } from "./Game";
 import { getRandomInt} from "../../utils";
+import Game from "./Game";
 
 export const orderCircles = [];
-export const orderCirclesRed = [];
 export default function GameOrder(props){ 
     const [score, setScore] = useState(-1);
     const [render, setRender] = useState(true)
@@ -18,15 +17,13 @@ export default function GameOrder(props){
       setScore(() => -1)
       setRender(prev => !prev)
       orderCircles.length = 0
-      orderCirclesRed.length = 0
     }
     useEffect(() => {
         addRandomCircle();
     }, [render])
     function addRandomCircle(){
         const newNum = getRandomInt(count)
-        orderCircles.push(newNum)
-        orderCirclesRed.push(newNum)
+        orderCircles.push([newNum, true])
         setScore(prevState => prevState+1)
         
     }

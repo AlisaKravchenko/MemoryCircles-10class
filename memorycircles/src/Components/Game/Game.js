@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import './Game.css';
 import { colors, levels } from "../data";
 import Circle from "./Circle";
-import { orderCircles, orderCirclesRed } from "./GameOrder";
+import { orderCircles } from "./GameOrder";
 import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";
 import { getRandomInt } from "../../utils";
@@ -10,6 +10,8 @@ import { getRandomInt } from "../../utils";
 
 export let currentNum = 0;
 export let redCircleNum=-1;
+
+export const clickCircles = [];
 export default function Game(props){ 
     const allCircles = [];
     const headStyle = {
@@ -37,11 +39,16 @@ export default function Game(props){
 
 
     useEffect(() => {
-        //console.log(props.render)
-        
-        if (orderCircles.length>=2 && getRandomInt(10)<=5){
-            redCircleNum=getRandomInt(orderCirclesRed.length)
-            //console.log(redCircleNum)
+        let clicksCount = 0;
+        orderCircles.forEach((item)=>{
+            console.log(item)
+            if (item[1]){
+                clicksCount++;
+            }    
+        })
+        if (orderCircles.length>=5 && getRandomInt(10)<=4 && clicksCount>=2){
+            redCircleNum=getRandomInt(orderCircles.length)
+            orderCircles[redCircleNum][1]=false;
         }
         currentNum = 0;
         const speed = JSON.parse(localStorage.getItem('speed'))
@@ -51,34 +58,45 @@ export default function Game(props){
         const timeout = setTimeout(() => { 
             clearInterval(timerId)
             setClickFlag(() => true)
+
+            console.log(redCircleNum)
+            // if (redCircleNum!=-1){
+            //     orderCircles[redCircleNum][1]=false;
+            //     console.log('g')
+            // }
+            redCircleNum=-1;
+            console.log(orderCircles)
+            clickCircles.length = 0;
+            //console.log(orderCirclesRed)
+            orderCircles.forEach((item)=>{
+                console.log(item)
+                if (item[1]){
+                    clickCircles.push(item[0])
+                }    
+            })
+            console.log(clickCircles)
              
         }, speed*2*(orderCircles.length+1)-speed);
         return () => {
             clearTimeout(timeout)
             clearInterval(timerId)
 
-            console.log(redCircleNum)
-            if (redCircleNum!=-1){
-            orderCirclesRed.splice(redCircleNum,1)
-            }
-            redCircleNum=-1;
-            console.log(orderCircles)
-            console.log(orderCirclesRed)
+            
             
         }
     }, [props.score])
     
     function onCircleClick(number){
-        if (orderCirclesRed[currentNum] === number){
+        if (clickCircles[currentNum] === number){
             currentNum=currentNum+1;
-            if (currentNum===orderCirclesRed.length){
+            if (currentNum===clickCircles.length){
                 setClickFlag(() => false)
                 setFlashState(() => 0)
                 props.addRandomCircle()
                 
             }
         } else {
-            orderCirclesRed.length  = 0;
+            //orderCirclesRed.length  = 0;
             orderCircles.length  = 0;
             setMistakeFlag(() => true)
             if (JSON.parse(localStorage.getItem(props.level)) < props.score){
@@ -103,10 +121,10 @@ export default function Game(props){
                 return <Circle 
                     color={colors[index]} 
                     key={index} 
-                    number={index} 
+                    index={index} 
                     level={props.level} 
                     onCircleClick={onCircleClick} 
-                    flashNum={orderCircles[flashState-1]} 
+                    flashNum={flashState >= 1 ? orderCircles[flashState-1] : [-1]} 
                     flashState={flashState} 
                     redCircleNum={redCircleNum}
                     clickFlag={clickFlag}

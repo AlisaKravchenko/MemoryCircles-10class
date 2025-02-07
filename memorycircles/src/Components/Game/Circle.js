@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import './Game.css';
 import { levels } from "../data";
 import { redCircleNum } from "./Game";
-import { orderCircles } from "./GameOrder";
 export default function Circle(props){
     const [isHover, setIsHover] =useState(false);
     const count = levels[props.level][1]
@@ -16,9 +15,9 @@ export default function Circle(props){
     })
 
     useEffect(() => {
-        //console.log(orderCircles[redCircleNum], props.number, props.flashNum)
         const speed = JSON.parse(localStorage.getItem('speed'))
-        if (props.number === props.flashNum && props.number != orderCircles[redCircleNum]){
+        if (props.index === props.flashNum[0] && (redCircleNum ===-1 || props.flashState - 1 !== redCircleNum)){
+            
             setStyle2(() => {
                 return {
                     backgroundColor: props.color,
@@ -36,8 +35,8 @@ export default function Circle(props){
            
         }
 
-        if (props.number === props.flashNum && props.number === orderCircles[redCircleNum]){
-            console.log('r')
+        if (props.index === props.flashNum[0] && redCircleNum!==-1 && props.flashState - 1 === redCircleNum){
+            
             setStyle2(() => {
                 return {
                     backgroundColor: 'red',
@@ -78,7 +77,7 @@ export default function Circle(props){
                     filter: 'brightness(100%)',
                 }    
             } )
-            props.onCircleClick(props.number);
+            props.onCircleClick(props.index);
          
         }
          
