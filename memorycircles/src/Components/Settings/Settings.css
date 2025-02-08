@@ -16,6 +16,22 @@
 table {
     min-width: 40rem;
 }
+table .form-range::before {
+    content: "SLOW";
+    color: var(--mainColor);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+    margin-top: -1rem !important;
+}
+table .form-range::after {
+    content: "FASTE";
+    color: var(--mainColor);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    margin-top: -1rem !important;
+}
 select {
     border: 0.3rem solid var(--mainColor);
     outline: none;
