@@ -47,7 +47,15 @@ export default function Settings(props){
                                     <div className='settingsOption'>BLINK SPEED</div>
                                 </th>
                                 <th>
-                                    <select value={currentSpeed} className='settingsSelect' onChange={changeSpeed}>
+                                <div>
+                                    {/* SLOW */}
+                                    
+                                    <input type="range" class="form-range" min="0" max="1000" id="customRange2"></input>
+                                    {/* FASTE */}
+                                </div>
+                                {/* <label for="customRange2" class="form-label">Пример диапазона</label> */}
+                                
+                                    {/* <select value={currentSpeed} className='settingsSelect' onChange={changeSpeed}>
                                         <option value='100'>100 ms</option>
                                         <option value='200'>200 ms</option>
                                         <option value='300'>300 ms</option>
@@ -58,7 +66,7 @@ export default function Settings(props){
                                         <option value='800'>800 ms</option>
                                         <option value='900'>900 ms</option>
                                         <option value='1000'>1000 ms</option>
-                                    </select>
+                                    </select> */}
                                 </th>
                             </tr>
                         </table>
