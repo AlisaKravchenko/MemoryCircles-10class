@@ -1,4 +1,4 @@
-import { levels } from "./Components/data";
+import { levels } from "./data";
 
 export function getRandomInt(max) {
   return Math.floor(Math.random() * max);

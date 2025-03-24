@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import './Game.css';
-import { colors, levels } from "../data";
+import { colors, levels } from "../../data";
 import Circle from "./Circle";
 import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";

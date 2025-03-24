@@ -1,4 +1,4 @@
-import { levels } from "./data";
+import { levels } from "../data";
 import LevelButton from "./LevelButton";
 import ExitButton from "./ExitButton";
 export default function Levels({onChangeLevel}){

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import './Game.css';
-import { levels } from "../data";
+import { levels } from "../../data";
 
 
 
