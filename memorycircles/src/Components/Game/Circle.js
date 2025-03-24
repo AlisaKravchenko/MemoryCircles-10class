@@ -15,6 +15,9 @@ export default function Circle(props){
     })
 
     useEffect(() => {
+        console.log(props.flashNum)
+        console.log(props.index)
+        console.log(redCircleNum)
         const speed = JSON.parse(localStorage.getItem('speed'))
         if (props.index === props.flashNum[0] && (redCircleNum ===-1 || props.flashState - 1 !== redCircleNum)){
             

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { orderCircles } from "./Game/GameOrder";
+import { orderCircles } from "./Game/Game";
 
 
 export default function ExitButton(props){ 
@@ -9,8 +9,10 @@ export default function ExitButton(props){
         if (props.score && JSON.parse(localStorage.getItem(props.level)) < props.score){
             localStorage.setItem(props.level, JSON.stringify(props.score))
         }
+        //props.exitFunc()
+        orderCircles.length = 0
         navigate('/')
-        orderCircles.length  = 0;
+        
     }
     
     return (

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import './Game.css';
 import { colors, levels } from "../data";
 import Circle from "./Circle";
-import { orderCircles } from "./GameOrder";
 import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";
 import { getRandomInt } from "../../utils";
@@ -10,7 +9,7 @@ import { getRandomInt } from "../../utils";
 
 export let currentNum = 0;
 export let redCircleNum=-1;
-
+export const orderCircles = [];
 export const clickCircles = [];
 export default function Game(props){ 
     const allCircles = [];
@@ -21,27 +20,40 @@ export default function Game(props){
     const count = levels[props.level][0]*levels[props.level][1];
     const [mistakeFlag, setMistakeFlag] = useState(false)
     const [clickFlag, setClickFlag] = useState(false);
-
-   
+    const [score, setScore] = useState(0);
+    
+    
 
     for (let i=0;i<count;i++){
         allCircles.push(colors[i]);
     }
     const [flashState, setFlashState] = useState(0);
-
     function retryClick(){
         setMistakeFlag(() => false)
         setFlashState(() => 0)
         setClickFlag(() => false)
-        const onRetryClick = props.onRetryClick
-        onRetryClick()
+
+        
+        setScore(() => -1)
+        orderCircles.length = 0
+        addRandomCircle()
+        
     }
-
-
+    function addRandomCircle(){
+        const newNum = getRandomInt(count)
+        orderCircles.push([newNum, true])
+        setScore(prevState => prevState+1)
+        
+    }
+    const speed = JSON.parse(localStorage.getItem('speed'))
+    const time = orderCircles.length > 0 ? speed*2*(orderCircles.length+1)-speed : 2*speed;
     useEffect(() => {
+        if (orderCircles.length===0){
+            const newNum = getRandomInt(count)
+            orderCircles.push([newNum, true])
+        }
         let clicksCount = 0;
         orderCircles.forEach((item)=>{
-            console.log(item)
             if (item[1]){
                 clicksCount++;
             }    
@@ -53,30 +65,25 @@ export default function Game(props){
         currentNum = 0;
         const speed = JSON.parse(localStorage.getItem('speed'))
         let timerId = setInterval(() => {
+            console.log("flash")
             setFlashState(prevState => prevState+1)
+            
         }, speed*2);
         const timeout = setTimeout(() => { 
+            console.log("flash1")
             clearInterval(timerId)
             setClickFlag(() => true)
 
-            console.log(redCircleNum)
-            // if (redCircleNum!=-1){
-            //     orderCircles[redCircleNum][1]=false;
-            //     console.log('g')
-            // }
+            
             redCircleNum=-1;
-            console.log(orderCircles)
             clickCircles.length = 0;
-            //console.log(orderCirclesRed)
             orderCircles.forEach((item)=>{
-                console.log(item)
                 if (item[1]){
                     clickCircles.push(item[0])
                 }    
             })
-            console.log(clickCircles)
              
-        }, speed*2*(orderCircles.length+1)-speed);
+        }, time);
         return () => {
             clearTimeout(timeout)
             clearInterval(timerId)
@@ -84,7 +91,7 @@ export default function Game(props){
             
             
         }
-    }, [props.score])
+    }, [score])
     
     function onCircleClick(number){
         if (clickCircles[currentNum] === number){
@@ -92,15 +99,14 @@ export default function Game(props){
             if (currentNum===clickCircles.length){
                 setClickFlag(() => false)
                 setFlashState(() => 0)
-                props.addRandomCircle()
+                addRandomCircle()
                 
             }
         } else {
-            //orderCirclesRed.length  = 0;
             orderCircles.length  = 0;
             setMistakeFlag(() => true)
-            if (JSON.parse(localStorage.getItem(props.level)) < props.score){
-                localStorage.setItem(props.level, JSON.stringify(props.score))
+            if (JSON.parse(localStorage.getItem(props.level)) < score){
+                localStorage.setItem(props.level, JSON.stringify(score))
             }
             
             
@@ -110,7 +116,7 @@ export default function Game(props){
   return (
     <div>
         <h1 className='score' style={props.level === 1 ? headStyle : {}}>
-            Score: {props.score}
+            Score: {score}
         </h1>
         <h1 style={{color: (clickFlag ? '#32CD32' : '#FF0000')}}>
             {clickFlag ? "CLICK!" : "REMEMBER!"}
@@ -124,15 +130,15 @@ export default function Game(props){
                     index={index} 
                     level={props.level} 
                     onCircleClick={onCircleClick} 
-                    flashNum={flashState >= 1 ? orderCircles[flashState-1] : [-1]} 
+                    flashNum={flashState >= 1 && orderCircles.length ? orderCircles[flashState-1] : [-1]} 
                     flashState={flashState} 
                     redCircleNum={redCircleNum}
                     clickFlag={clickFlag}
                 />
             } )}
         </div>
-        <ExitButton level={props.level} score={props.score} />
-        {mistakeFlag ? <Mistake score={props.score}  retryClick={retryClick}/> : ''}
+        <ExitButton level={props.level} score={score} />
+        {mistakeFlag ? <Mistake score={score}  retryClick={retryClick}/> : ''}
       </div>
       
     
