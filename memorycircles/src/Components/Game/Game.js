@@ -6,12 +6,12 @@ import ExitButton from "../ExitButton";
 import Mistake from "./Mistake";
 import { getRandomInt } from "../../utils";
 
-
-export let currentNum = 0;
-export let redCircleNum=-1;
-export const orderCircles = [];
-export const clickCircles = [];
 export default function Game(props){ 
+    let orderCircles = props.orderCircles
+    const clickCircles = props.clickCircles
+    let redCircleNum = props.redCircleNum
+    let currentNum = props.currentNum
+    console.log("d")
     const allCircles = [];
     const headStyle = {
         marginTop: '0.7rem',
@@ -112,7 +112,9 @@ export default function Game(props){
             
         }
     }
-    
+    function exitFunc(){
+        orderCircles.length=0
+    }
   return (
     <div>
         <h1 className='score' style={props.level === 1 ? headStyle : {}}>
@@ -137,7 +139,7 @@ export default function Game(props){
                 />
             } )}
         </div>
-        <ExitButton level={props.level} score={score} />
+        <ExitButton level={props.level} score={score} exitFunc={exitFunc} />
         {mistakeFlag ? <Mistake score={score}  retryClick={retryClick}/> : ''}
       </div>
       

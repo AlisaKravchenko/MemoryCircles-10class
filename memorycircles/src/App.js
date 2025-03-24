@@ -10,6 +10,18 @@ import Game from './Components/Game/Game';
 function App() {
   const [level, setLevel] = useState(JSON.parse(localStorage.getItem('currentLevel')));
   const [checkedTheme, setCheckedTheme] = useState(JSON.parse(localStorage.getItem('darkTheme')))
+  
+  // let initialValues = {
+  //   currentNum: 0,
+  //   redCircleNum: -1,
+  //   orderCircles: [],
+  //   clickCircles: []
+  // }
+  let currentNum = 0;
+  let redCircleNum=-1;
+  const orderCircles = [];
+  const clickCircles = [];
+  
   function changeLevel(newLevel){
     setLevel(newLevel)
   }
@@ -25,7 +37,13 @@ function App() {
       <HashRouter>
         <Routes>
             <Route exact path='/' element={<Main level={level} />}></Route>
-            <Route path='/game' element={<Game level={level}/>}  ></Route>
+            <Route path='/game' element={<Game 
+            level={level}
+            currentNum={currentNum}
+            redCircleNum={redCircleNum}
+            orderCircles={orderCircles}
+            clickCircles={clickCircles}
+             />}  ></Route>
             <Route path='/levels' element={<Levels level={level} onChangeLevel={changeLevel}/>}  ></Route>
             <Route path='/settings' element={<Settings setTheme={setTheme} checkedTheme={checkedTheme}/>}  ></Route>
 

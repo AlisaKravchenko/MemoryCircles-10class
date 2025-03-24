@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import './Game.css';
 import { levels } from "../data";
-import { redCircleNum } from "./Game";
+
+
+
 export default function Circle(props){
+    const redCircleNum = props.redCircleNum
     const [isHover, setIsHover] =useState(false);
     const count = levels[props.level][1]
     const size=(45-count*2)/count +'rem'
@@ -15,9 +18,9 @@ export default function Circle(props){
     })
 
     useEffect(() => {
-        console.log(props.flashNum)
-        console.log(props.index)
-        console.log(redCircleNum)
+        // console.log(props.flashNum)
+        // console.log(props.index)
+        // console.log(redCircleNum)
         const speed = JSON.parse(localStorage.getItem('speed'))
         if (props.index === props.flashNum[0] && (redCircleNum ===-1 || props.flashState - 1 !== redCircleNum)){
             
